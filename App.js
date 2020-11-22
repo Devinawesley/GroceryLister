@@ -1,8 +1,10 @@
+
 const express = require('express')
 const mongoose = require('mongoose')
-
+const dbUser = process.argv[2]
+const dbPass = process.argv[3]
 const port = process.env.PORT || 3001
-const connectionString = "mongodb+srv://Server:TDaMPpR4Y0Mfxjtn@cluster0.7qsp9.mongodb.net/Cluster0?retryWrites=true&w=majority"
+const connectionString = `mongodb+srv://${dbUser}:${dbPass}@cluster0.7qsp9.mongodb.net/Cluster0?retryWrites=true&w=majority`
 
 //Express app
 const app = express()
