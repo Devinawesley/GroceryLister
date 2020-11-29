@@ -1,4 +1,3 @@
-
 const express = require('express')
 const mongoose = require('mongoose')
 const Recipe = require('./models/recipe')
@@ -15,18 +14,15 @@ const app = express()
 mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() =>{
         console.log("Connected to db successfully")
-        app.listen(port, () => {
-            console.log(`listening on port ${port}`)
-        })
+        app.listen(port, () => {console.log(`listening on port ${port}`)})
     })
-    .catch((err) => {
-        console.log("error connecting to db: " + err)
-    }) 
+    .catch((err) => {console.log("error connecting to db: " + err)})
+
+//Routes
 app.get('/', (req, res) => {
     res.send("Hello World!")
 })
 
-//Routes
 app.get('/login', (req, res) => {
     res.send("login screen!")
 })
@@ -42,12 +38,8 @@ app.get('/recipes/create', (req, res) => {
     })
 
     recipe.save()
-        .then((result) =>{
-            res.send(result)
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
+        .then((result) => {res.send(result)})
+        .catch((err)=> {console.log(err);})
 })
 
 app.get('/recipes/edit/:id', (req, res) => {
@@ -56,12 +48,8 @@ app.get('/recipes/edit/:id', (req, res) => {
 
 app.get('/recipes/:id', (req, res) => {
     Recipe.find({userid:req.params.id})
-        .then((result) => {
-            res.send(`recipe list for user ${req.params.id}: \n` + result)
-        })
-        .catch((err) =>{
-            console.log(err)
-        })
+        .then((result) => {res.send(`recipe list for user ${req.params.id}: \n` + result)})
+        .catch((err) =>{console.log(err)})
 })
 
 app.use((req, res) => {
