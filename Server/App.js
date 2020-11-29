@@ -1,15 +1,18 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const Recipe = require('./models/recipe')
+import express from 'express'
+import mongoose from 'mongoose'
+import Recipe from './models/recipe.js'
+import cors from 'cors'
+
 //mongoDB username and pass from command line args
 const dbUser = process.argv[2]
 const dbPass = process.argv[3]
+
 const port = process.env.PORT || 3001
 const connectionString = `mongodb+srv://${dbUser}:${dbPass}@cluster0.7qsp9.mongodb.net/Cluster0?retryWrites=true&w=majority`
 
 //Express app
 const app = express()
-
+app.use(cors())
 //Connecting to MongoDB
 mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() =>{
@@ -48,7 +51,7 @@ app.get('/recipes/edit/:id', (req, res) => {
 
 app.get('/recipes/:id', (req, res) => {
     Recipe.find({userid:req.params.id})
-        .then((result) => {res.send(`recipe list for user ${req.params.id}: \n` + result)})
+        .then((result) => {res.send(result)})
         .catch((err) =>{console.log(err)})
 })
 
