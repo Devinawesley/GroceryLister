@@ -1,4 +1,5 @@
 import Ingredient from './Ingredient'
+import './CSS/Recipe.css'
 
 const Recipe = ((props)=>{
     const ingred = Object.keys(props.recipe.ingredients)
@@ -8,9 +9,11 @@ const Recipe = ((props)=>{
         )
     })
     return(
-        <div>
-            <h2>{props.recipe.name}</h2>
-            {ingredientComponents}
+        <div className = "card">
+            <div className = "container">
+                <h2>{props.recipe.name}</h2>
+                {ingredientComponents}
+            </div>
         </div>
     )
 })
