@@ -9,10 +9,12 @@ const Recipe = ((props)=>{
         )
     })
     return(
-        <div className = "card">
-            <div className = "container">
-                <h2>{props.recipe.name}</h2>
-                {ingredientComponents}
+        <div className = "recipe">
+            <div className = "recipeCard">
+                <div className = "container">
+                    <h2>{props.recipe.name}</h2>
+                    {ingredientComponents}
+                </div>
             </div>
         </div>
     )

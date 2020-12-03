@@ -1,9 +1,10 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+.recipeCard {
+    box-shadow: 2px 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
-    
   }
-.container {
-padding: 2px 16px;
+.recipe {
+padding: 5px 5px;
+width: 49%;
+float: left;
 }
