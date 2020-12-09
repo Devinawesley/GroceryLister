@@ -2,7 +2,12 @@ import Header from './Header'
 import { useEffect, useState } from 'react'
 import Recipe from './Recipe'
 import './CSS/App.css'
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
   const[recipes, setRecipes] = useState()
