@@ -2,12 +2,12 @@ import Header from './Header'
 import { useEffect, useState } from 'react'
 import Recipe from './Recipe'
 import './CSS/App.css'
-import {
+/* import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from "react-router-dom"; */
 
 function App() {
   const[recipes, setRecipes] = useState()
@@ -15,7 +15,7 @@ function App() {
   let recipeComponents = []
   useEffect(()=>{
     console.log('mounted')
-    fetch("http://10.0.0.26:3001/recipes/1234")
+    fetch("http://localhost:3001/recipes/1234")
     .then(response => response.json())
     .then(data =>{
       setRecipes(data)

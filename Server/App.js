@@ -50,9 +50,11 @@ app.get('/recipes/edit/:id', (req, res) => {
 })
 
 app.get('/recipes/:id', (req, res) => {
+    console.log("New request..")
     Recipe.find({userid:req.params.id})
         .then((result) => {res.send(result)})
         .catch((err) =>{console.log(err)})
+    console.log("Request served")
 })
 
 app.use((req, res) => {
